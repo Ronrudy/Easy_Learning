@@ -1,0 +1,6 @@
+create Activity name="Numeracy"
+create  Activity name="Reading"
+all Activity
+
+create Game user_id="0001" title="Addition" description="adding_of_numbers"
+all Game

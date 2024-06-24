@@ -1,0 +1,35 @@
+hbnb_dev_pwd
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL
+
+cat setup_mysql_dev.sql | mysql -hlocalhost -uroot -p
+echo "SHOW DATABASES;" | mysql -uel_dev -p | grep el_dev_db
+echo "SHOW GRANTS FOR 'el_dev'@'localhost';" | mysql -uroot -p
+echo "SHOW DATABASES;" | mysql -uel_test -p | grep el_test_db
+echo "SHOW GRANTS FOR 'el_test'@'localhost';" | mysql -uroot -p
+echo 'create User first_name="Ron" last_name="Rudy" email="ruffroony@yahoo.com" password="sql"' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+
+user=264847c1-2200-4fd9-b410-43d15aec33ec
+
+echo 'create Activity name="Numeracy" description="Addition_and_subtraction"' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+Activity=87e21ae2-e16f-4f8e-8248-bd86ec93e2cd
+echo 'all Activity' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+echo 'SELECT * FROM activities\G' | mysql -uel_dev -p el_dev_db
+
+echo 'create User username="Ron_rudy" email="ruffroony@yahoo.com" password="sql" first_name="Ron" last_name="Aryeetey" age=14 class_level=4' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+user=8af21d47-3eab-4cd1-8cfc-cb75a049f577
+echo 'SELECT * FROM users\G' | mysql -uel_dev -p el_dev_db
+
+echo 'create Game user_id="8af21d47-3eab-4cd1-8cfc-cb75a049f577" title="Addition" description="Adding_of_number" activity_id="87e21ae2-e16f-4f8e-8248-bd86ec93e2cd"' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+Game=5f04cde9-aaa7-4540-9db9-804e60b4d887 Addition
+Game=e4d96b61-00c0-4844-a710-45f314327a2a Subtraction
+echo 'all Game' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+echo 'SELECT * FROM games\G' | mysql -uel_dev -p el_dev_db
+
+echo 'create Progress user_id="8af21d47-3eab-4cd1-8cfc-cb75a049f577" activity_id="87e21ae2-e16f-4f8e-8248-bd86ec93e2cd" progress_percent=90.5' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+progress=b251d4b8-00a2-412b-8f95-cdd6edb97376
+echo 'all Progress' | EL_MYSQL_USER=el_dev EL_MYSQL_PWD=hbnb_dev_pwd EL_MYSQL_HOST=localhost EL_MYSQL_DB=el_dev_db EL_TYPE_STORAGE=db ./console.py
+
+
+
+

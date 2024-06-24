@@ -1,0 +1,22 @@
+hbnb_dev_pwd
+
+
+state=california
+f67db8ef-35bd-463f-a3c6-16511be447af
+state=Alabama
+6aa0a222-d9e4-4660-8ea9-c110cc692e35
+
+city=san franscisco
+9420553d-c964-4213-a156-2455f8f35881
+
+city=san jose
+b64f0d16-cfb3-406e-ba4b-34b1cfe3e003
+
+user=482de43b-da56-4162-a82d-35842ee0fc2e
+7a34c277-a5ae-4aa0-8de1-5abbbdde2933
+
+lovely place=faae46b7-af18-4e73-9b06-3b706932cfff
+
+review=9d0c332d-af44-4775-8a6a-87470b8e968b
+
+echo 'create State name="California"' | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py
